@@ -1,6 +1,11 @@
 <template>
   <section class="container">
-    <h2 class="aligh-center">難読大陸</h2>
+    <div class="mx-auto text-center">
+      <img src="/logo.png" alt="Nandoku Tairiku" class="img-thumnail">
+    </div>
+    <div class="row">
+      <br>
+    </div>
     <div class="row justify-content-center">
       <div class="col-4 align-items-center">
         <a class="btn btn-primary btn-block" href="/quiz/index" role="button">スタート</a>
