@@ -1,5 +1,8 @@
 <template>
   <section class="container">
+    <div class="row">
+      <br>
+    </div>
     <div class="mx-auto text-center">
       <img src="/logo.png" alt="Nandoku Tairiku" class="img-thumnail">
     </div>
