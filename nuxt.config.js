@@ -71,6 +71,6 @@ module.exports = {
     }
   },
   router: {
-    base: '/nantai/'
+    base: process.env.DEPLOY_ENV == 'GH_PAGES' ? '/nantai/' : '/'
   }
 }
