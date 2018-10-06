@@ -27,7 +27,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <a class="btn btn-primary btn-block" href="quiz/pref" role="button">ランダム</a>
+        <a class="btn btn-primary btn-block" href="quiz/pref/0" role="button">ランダム</a>
       </div>
     </div>
   </section>

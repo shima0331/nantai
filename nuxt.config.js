@@ -77,7 +77,8 @@ module.exports = {
     routes: function () {
       return [
         '/quiz/pref/14',
-        '/quiz/pref/22'
+        '/quiz/pref/22',
+        '/quiz/pref/0'
       ]
     }
   }
