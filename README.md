@@ -2,6 +2,10 @@
 
 > Nandoku Tairiku
 
+served on github pages
+
+https://dokechin.github.io/nantai/
+
 ## Build Setup
 
 ``` bash
