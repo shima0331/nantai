@@ -76,8 +76,8 @@ module.exports = {
   generate: {
     routes: function () {
       return [
-        '/pref/14',
-        '/pref/22'
+        '/quiz/pref/14',
+        '/quiz/pref/22'
       ]
     }
   }
