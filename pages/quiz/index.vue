@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 align-items-center">
-        <a class="btn btn-primary btn-block" href="/quiz" role="button">スタート</a>
+        <a class="btn btn-primary btn-block" href="/quiz/pref/14" role="button">神奈川県</a>
       </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <a class="btn btn-primary btn-block" href="/collection" role="button">コレクション</a>
+        <a class="btn btn-primary btn-block" href="/quiz/pref/22" role="button">静岡県</a>
       </div>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <a class="btn btn-primary btn-block" href="/usage" role="button">遊び方</a>
+        <a class="btn btn-primary btn-block" href="/quiz/pref" role="button">ランダム</a>
       </div>
     </div>
   </section>
