@@ -72,5 +72,13 @@ module.exports = {
   },
   router: {
     base: process.env.DEPLOY_ENV == 'GH_PAGES' ? '/nantai/' : '/'
+  },
+  generate: {
+    routes: function () {
+      return [
+        '/pref/14',
+        '/pref/22'
+      ]
+    }
   }
 }
