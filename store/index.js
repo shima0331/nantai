@@ -7,6 +7,30 @@ const createStore = () => {
       quizzes: [
         {
           id: 1,
+          pref: 14,
+          city: '神奈川県三浦市',
+          city_yomi: 'しずおかけんみうらし',
+          town: '海外町',
+          town_yomi: 'かいとちょう'
+        },
+        {
+          id: 2,
+          pref: 14,
+          city: '神奈川県川崎市川崎区',
+          city_yomi: 'かながわけんかわさきしかわさきく',
+          town: '砂子',
+          town_yomi: 'いさご'
+        },
+        {
+          id: 3,
+          pref: 14,
+          city: '横浜市保土ケ谷区',
+          city_yomi: 'かながわけんよこはましほどがやく',
+          town: '神戸町',
+          town_yomi: 'ごうどちょう'
+        },
+        {
+          id: 4,
           pref: 22,
           city: '静岡県沼津市',
           city_yomi: 'しずおかけんぬまづし',
@@ -14,7 +38,7 @@ const createStore = () => {
           town_yomi: 'こずわ'
         },
         {
-          id: 2,
+          id: 5,
           pref: 22,
           city: '静岡県沼津市',
           city_yomi: 'しずおかけんぬまづし',
@@ -22,7 +46,7 @@ const createStore = () => {
           town_yomi: 'ひがしくまんどう'
         },
         {
-          id: 3,
+          id: 6,
           pref: 22,
           city: '静岡県沼津市',
           city_yomi: 'しずおかけんぬまづし',
@@ -30,7 +54,7 @@ const createStore = () => {
           town_yomi: 'おおの'
         },
         {
-          id: 4,
+          id: 7,
           pref: 22,
           city: '静岡県熱海市',
           city_yomi: 'しずおかけんあたみし',
