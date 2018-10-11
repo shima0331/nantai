@@ -1,8 +1,25 @@
 <template>
   <section class="container">
-    <h2>hello {{ $route.params.id }}</h2>
-    {{ questions[question_index].city }}
-    {{ questions[question_index].town }}
+
+    <div class="row">
+      <div class="col-12 clearfix">
+        <div class="float-left"><img src="logo.png" alt="Nandoku Tairiku"></div>
+        <div class="col-xs-6">
+          <h2>この地名の読み方、わかるかな</h2> 
+        </div>
+      </div>
+    </div>
+    <div v-if="type == 2">
+      不正解
+    </div> 
+    <div v-if="type　== 0 || type == 2">
+      {{ questions[question_index].city }}<b>{{ questions[question_index].town }}</b>
+      <input v-model="yomi"><button @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></button>
+    </div>
+    <div v-if="type　== 1">
+      正解！カードをゲットしました
+      <button @click="next">別の問題をとく</button>
+    </div>
   </section>
 </template>
 
@@ -11,11 +28,28 @@ export default {
   data() {
     return {
       questions: this.$store.state.questions,
-      question_index: this.$store.state.question_index
+      question_index: this.$store.state.question_index,
+      yomi: '',
+      type: 0
     }
   },
   fetch({ store, params }) {
     store.dispatch('shuffle', { pref: params.id })
+  },
+  methods: {
+    answer: function(event) {
+      // `this` inside methods point to the Vue instance
+      if (this.questions[this.question_index].town_yomi == this.yomi) {
+        this.type = 1
+      } else {
+        this.type = 2
+      }
+    },
+    next: function(event) {
+      this.question_index++
+      this.type = 0
+      this.yomi = ''
+    }
   }
 }
 </script>
