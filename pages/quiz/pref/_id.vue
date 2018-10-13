@@ -18,7 +18,12 @@
     </div>
     <div v-if="type　== 1">
       正解！カードをゲットしました
-      <button @click="next">別の問題をとく</button>
+      <div v-if="questions.length != (question_index + 1)">        
+        <button @click="next">別の問題をとく</button>
+      </div>
+      <nuxt-link :to="{name: 'quiz'}">
+        <button>戻る</button>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -39,8 +44,12 @@ export default {
   methods: {
     answer: function(event) {
       // `this` inside methods point to the Vue instance
-      if (this.questions[this.question_index].town_yomi == this.yomi) {
+      var question = this.questions[this.question_index]
+      if (question.town_yomi == this.yomi) {
         this.type = 1
+        this.$store.state.cards.push(question.id)
+        this.$store.dispatch('saveCards', this.$store.state.cards)
+        this.$store.commit('setCards', this.$store.state.cards)
       } else {
         this.type = 2
       }

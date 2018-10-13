@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 align-items-center">
-        <a class="btn btn-primary btn-block" href="quiz" role="button">スタート</a>
+        <nuxt-link class="btn btn-primary btn-block" to="/quiz" role="button">スタート</nuxt-link>
       </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <a class="btn btn-primary btn-block" href="collection" role="button">コレクション</a>
+        <nuxt-link class="btn btn-primary btn-block" to="/collection" role="button">コレクション</nuxt-link>
       </div>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <a class="btn btn-primary btn-block" href="usage" role="button">遊び方</a>
+        <nuxt-link class="btn btn-primary btn-block" to="/usage" role="button">遊び方</nuxt-link>
       </div>
     </div>
   </section>
@@ -39,6 +39,9 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    this.$store.dispatch('loadCards')
   }
 }
 </script>

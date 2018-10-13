@@ -3,7 +3,7 @@ const shuffle = require('shuffle-array')
 
 const createStore = () => {
   return new Vuex.Store({
-    state: {
+    state: () => ({
       quizzes: [
         {
           id: 1,
@@ -65,7 +65,7 @@ const createStore = () => {
       cards: [], // 取得したカード
       question_index: 0, // 問題番号
       questions: [] // 問題
-    },
+    }),
     mutations: {
       // メッセージの書き換え
       setCards(state, payload) {
@@ -83,19 +83,20 @@ const createStore = () => {
             (payload.pref == 0 || payload.pref == quiz.pref) &&
             !state.cards.includes(quiz.id)
         )
-        console.log(unanswereds)
         commit('setQuestions', shuffle(unanswereds))
       },
-      getCards(commit) {
-        // TODO ローカルストレージから取得するしてセット
-        //axios.get('/api/message').then(function(response) {
-        // 引数の commit を使って確定したデータをここからコミットする
-        // commit('setCards', response.data.message)
-        //})
+      loadCards({ commit, state }) {
+        if (localStorage.getItem('nantaiCards')) {
+          Object.assign(
+            state.cards,
+            JSON.parse(localStorage.getItem('nantaiCards'))
+          )
+        }
       },
       // 今ある state のメッセージを ストレージに保存
       saveCards({ commit, state }) {
-        // axios.put('/api/message', { message: state.message })
+        console.log(JSON.stringify(state.cards))
+        localStorage.setItem('nantaiCards', JSON.stringify(state.cards))
       }
     },
     getters: {
