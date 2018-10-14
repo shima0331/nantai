@@ -38,6 +38,14 @@
         <nuxt-link class="btn btn-primary btn-block" to="/" role="button">メニューへ</nuxt-link>
       </div>
     </div>
+    <div class="row">
+      <br>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4 lign-items-center">
+        <button class="btn btn-primary btn-block" @click="clear">データクリア</button>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -53,6 +61,10 @@ export default {
           !this.$store.state.cards.includes(quiz.id)
       )
       return unanswereds.length
+    },
+    clear: function() {
+      this.$store.dispatch('saveCards', [])
+      this.$store.commit('setCards', [])
     }
   }
 }

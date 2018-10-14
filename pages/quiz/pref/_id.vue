@@ -18,6 +18,7 @@
     </div>
     <div v-if="type　== 1">
       正解！カードをゲットしました
+      <Card :id="card.id"/>
       <div v-if="questions.length != (question_index + 1)">        
         <button @click="next">別の問題をとく</button>
       </div>
@@ -29,13 +30,19 @@
 </template>
 
 <script>
+import Card from '~/components/Card.vue'
+
 export default {
+  components: {
+    Card
+  },
   data() {
     return {
       questions: this.$store.state.questions,
       question_index: this.$store.state.question_index,
       yomi: '',
-      type: 0
+      type: 0,
+      card: null
     }
   },
   fetch({ store, params }) {
@@ -48,6 +55,7 @@ export default {
       if (question.town_yomi == this.yomi) {
         this.type = 1
         this.$store.state.cards.push(question.id)
+        this.card = question
         this.$store.dispatch('saveCards', this.$store.state.cards)
         this.$store.commit('setCards', this.$store.state.cards)
       } else {
