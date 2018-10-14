@@ -3,7 +3,7 @@
     <div class="card-header">
       No.{{ id }}
     </div>
-    <img class="card-img" src="cardbackground.png" alt="Card">
+    <img class="card-img" src="cardbackground.png">
     <div class="card-img-overlay">
       <div class="card-body">
         <br>
