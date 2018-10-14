@@ -18,7 +18,11 @@
     </div>
     <div v-if="type　== 1">
       正解！カードをゲットしました
-      <Card :id="card.id"/>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <Card :id="card.id"/>
+        </div>
+      </div>
       <div v-if="questions.length != (question_index + 1)">        
         <button @click="next">別の問題をとく</button>
       </div>
