@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 align-items-center">
-        <nuxt-link class="btn btn-primary btn-block" to="/quiz" role="button">スタート</nuxt-link>
+        <nuxt-link class="btn btn-primary btn-block badge-pill btn-lg" to="/quiz" role="button">スタート</nuxt-link>
       </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <nuxt-link class="btn btn-primary btn-block" to="/collection" role="button">コレクション</nuxt-link>
+        <nuxt-link class="btn btn-primary btn-block badge-pill btn-info" to="/collection" role="button">コレクション</nuxt-link>
       </div>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4 lign-items-center">
-        <nuxt-link class="btn btn-primary btn-block" to="/usage" role="button">遊び方</nuxt-link>
+        <nuxt-link class="btn btn-primary btn-block badge-pill btn-info" to="/usage" role="button">遊び方</nuxt-link>
       </div>
     </div>
   </section>
