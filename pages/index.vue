@@ -30,6 +30,9 @@
         <nuxt-link class="btn btn-primary btn-block badge-pill btn-info" to="/usage" role="button">遊び方</nuxt-link>
       </div>
     </div>
+    <div class="row">
+      <br>
+    </div>
   </section>
 </template>
 
