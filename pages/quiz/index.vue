@@ -1,9 +1,5 @@
 <template>
 <section class="container">
-<head>
-<title>テーブルタグで作る日本地図</title>
-</head>
-<body>
 <table id="mapTbl">
  <tr>
    <td colspan="2" rowspan="34" class="leftRight"></td>
@@ -13,8 +9,10 @@
   <tr>
    <td colspan="21" rowspan="2">
     <div class="mx-auto text-center">
+      <nuxt-link to="/">
       <img src="logo.png" alt="Nandoku Tairiku" class="img-thumnail"
       align="left" width="25%">
+      </nuxt-link>
     </div>
    </td>
    <td rowspan="8" colspan="2"></td>
@@ -252,8 +250,6 @@
    <td colspan="28" class="topBottom"></td>
   </tr>
 </table>
-
-</body>
 </section>
 </template>
 
