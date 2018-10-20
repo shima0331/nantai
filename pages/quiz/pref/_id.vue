@@ -12,11 +12,11 @@
     <div v-if="type == 2">
       不正解
     </div> 
-    <div v-if="type　== 0 || type == 2">
+    <div v-if="type==0 || type==2">
       {{ questions[question_index].city }}<b>{{ questions[question_index].town }}</b>
       <input v-model="yomi"><button @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></button>
     </div>
-    <div v-if="type　== 1">
+    <div v-if="type==1">
       正解！カードをゲットしました
       <div class="row justify-content-center">
         <div class="col-4">
@@ -53,7 +53,7 @@ export default {
     store.dispatch('shuffle', { pref: params.id })
   },
   methods: {
-    answer: function(event) {
+    answer: function() {
       // `this` inside methods point to the Vue instance
       var question = this.questions[this.question_index]
       if (question.town_yomi == this.yomi) {
@@ -66,7 +66,7 @@ export default {
         this.type = 2
       }
     },
-    next: function(event) {
+    next: function() {
       this.question_index++
       this.type = 0
       this.yomi = ''
