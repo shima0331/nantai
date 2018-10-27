@@ -1,34 +1,34 @@
 <template>
   <section class="container">
-
-    <div class="row">
-      <div class="col-12 clearfix">
-        <div class="float-left"><img src="logo.png" alt="Nandoku Tairiku"></div>
-        <div class="col-xs-6">
-          <h2>この地名の読み方、わかるかな</h2> 
+    <div class="answer">
+      <div class="row">
+        <div class="col"/>
+        <div class="col-10 text-center">
+          この地名の読み方、わかるかな
         </div>
+        <div class="col"/>
       </div>
-    </div>
-    <div v-if="type == 2">
-      不正解
-    </div> 
-    <div v-if="type==0 || type==2">
-      {{ questions[question_index].city }}<b>{{ questions[question_index].town }}</b>
-      <input v-model="yomi"><button @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></button>
-    </div>
-    <div v-if="type==1">
-      正解！カードをゲットしました
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <Card :id="card.id"/>
+      <div v-if="type == 2">
+        不正解
+      </div> 
+      <div v-if="type==0 || type==2">
+        {{ questions[question_index].city }}<b>{{ questions[question_index].town }}</b>
+        <input v-model="yomi"><button @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></button>
+      </div>
+      <div v-if="type==1">
+        正解！カードをゲットしました
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <Card :id="card.id"/>
+          </div>
         </div>
+        <div v-if="questions.length != (question_index + 1)">        
+          <button @click="next">別の問題をとく</button>
+        </div>
+        <nuxt-link :to="{name: 'quiz'}">
+          <button>戻る</button>
+        </nuxt-link>
       </div>
-      <div v-if="questions.length != (question_index + 1)">        
-        <button @click="next">別の問題をとく</button>
-      </div>
-      <nuxt-link :to="{name: 'quiz'}">
-        <button>戻る</button>
-      </nuxt-link>
     </div>
   </section>
 </template>
@@ -76,4 +76,7 @@ export default {
 </script>
 
 <style>
+.answer {
+  background-color: #efffff;
+} /* 左右余白 */
 </style>

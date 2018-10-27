@@ -1,12 +1,7 @@
 <template>
   <div class="sf-site-all">
     <div class="sf-site-content">
-      <nuxt-link to="/">
-        <img src="logo.png" class="left">
-      </nuxt-link>
-      <br>
       <nuxt/>
-      <br>
       <Copyright/>
     </div>
     <Bottom/>
@@ -29,9 +24,6 @@ export default {
 }
 </script>
 <style>
-img {
-  width: 100px;
-}
 .sf-site-all {
   min-height: 100vh; /* 全体の高さを最低でもビューポートの100%にする */
   display: flex; /* 子クラスを横並びにする */
