@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"pref_id": 14,
+		"pref": "神奈川県",
+		"pref_yomi": "かながわけん",
+		"city": "川崎市川崎区",
+		"city_yomi": "かわさきしかわさきく",
+		"town": "砂子",
+		"town_yomi": "さご",
+		"rare": 1,
+		"map_img": "./map/1.jpg",
+		"spot": "すき家",
+		"spot_img": "./spot/1.jpg",
+		"spot_guide": "つゆだく"
+	},
+	{
+		"id": 2,
+		"pref_id": 14,
+		"pref": "神奈川県",
+		"pref_yomi": "かながわけん",
+		"city": "横浜市保土ケ谷区",
+		"city_yomi": "よこはましほどがやく",
+		"town": "神戸町",
+		"town_yomi": "こうどちょう",
+		"rare": 2,
+		"map_img": "./map/2.jpg",
+		"spot": "すき家",
+		"spot_img": "./spot/2.jpg",
+		"spot_guide": "つゆだく"
+	  },
+	{
+		"id": 3,
+		"pref_id": 22,
+		"pref": "静岡県",
+		"pref_yomi": "しずおかけん",
+		"city": "沼津市",
+		"city_yomi": "ぬまずし",
+		"town": "小諏訪",
+		"town_yomi": "こずわ",
+		"rare": 2,
+		"map_img": "./map/3.jpg",
+		"spot": "すき家",
+		"spot_img": "./spot/3.jpg",
+		"spot_guide": "つゆだく"
+	},
+	{
+		"id": 4,
+		"pref_id": 22,
+		"pref": "静岡県",
+		"pref_yomi": "しずおかけん",
+		"city": "熱海市",
+		"city_yomi": "あたみし",
+		"town": "網代",
+		"town_yomi": "あじろ",
+		"rare": 2,
+		"map_img": "./map/4.jpg",
+		"spot": "すき家",
+		"spot_img": "./spot/4.jpg",
+		"spot_guide": "つゆだく"
+	}
+]

@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div class="answer">
-      <div class="row">
+      <div class="row mb-2">
         <div class="col"/>
         <div class="col-10 text-center">
           この地名の読み方、わかるかな
@@ -11,9 +11,33 @@
       <div v-if="type == 2">
         不正解
       </div> 
-      <div v-if="type==0 || type==2">
-        {{ questions[question_index].city }}<b>{{ questions[question_index].town }}</b>
-        <input v-model="yomi"><button @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></button>
+      <div v-if="type==0 || type==2" class="row text-center">
+        <div class="col"/>
+        <div class="col-6 location-panel mb-2">
+          <div>
+            <img :src="questions[question_index].map_img" > 
+          </div>
+          {{ questions[question_index].pref }}{{ questions[question_index].city }}<span class="town-text">{{ questions[question_index].town }}</span>
+        </div>
+        <div class="col"/>
+      </div>
+      <div v-if="type==0 || type==2" class="row text-center mb-2">
+        <div class="col"/>
+        <div class="col-6">
+          <input v-model="yomi" placeholder="ここに入力してね" class="answer-input">
+          <b-button class="answer-btn badge-pill" @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
+        </div>
+        <div class="col"/>
+      </div>
+      <div v-if="type==0 || type==2" class="row clearfix">
+        <div class="col"/>
+        <div class="col-5 text-right">
+          <b-button class="other-btn badge-pill" @click="next">別の問題に挑戦</b-button>
+        </div>
+        <div class="col-5">
+          <b-button class="hint-btn badge-pill" @click="hint">ヒントをみる</b-button>
+        </div>
+        <div class="col"/>
       </div>
       <div v-if="type==1">
         正解！カードをゲットしました
@@ -23,11 +47,18 @@
           </div>
         </div>
         <div v-if="questions.length != (question_index + 1)">        
-          <button @click="next">別の問題をとく</button>
+          <b-button @click="next">別の問題をとく</b-button>
         </div>
         <nuxt-link :to="{name: 'quiz'}">
-          <button>戻る</button>
+          <b-button>戻る</b-button>
         </nuxt-link>
+      </div>
+      <br>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6"/>
+      <div class="text-right">
+        <nuxt-link to="/quiz" class="return-btn btn badge-pill">都道府県選択へ戻る</nuxt-link>
       </div>
     </div>
   </section>
@@ -50,7 +81,7 @@ export default {
     }
   },
   fetch({ store, params }) {
-    store.dispatch('shuffle', { pref: params.id })
+    store.dispatch('shuffle', { pref_id: params.id })
   },
   methods: {
     answer: function() {
@@ -78,5 +109,25 @@ export default {
 <style>
 .answer {
   background-color: #efffff;
+} /* 左右余白 */
+.location-panel {
+  background-color: #ffffff;
+}
+.town-text {
+  font-size: 30px;
+  color: #e06a3b;
+} /* 左右余白 */
+.answer-input {
+  border-color: #036a9e;
+}
+.answer-btn {
+  color: white;
+  background-color: #036a9e;
+} /* 左右余白 */
+.other-btn,
+.hint-btn,
+.return-btn {
+  color: white;
+  background-color: #1e98b9;
 } /* 左右余白 */
 </style>

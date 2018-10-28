@@ -251,10 +251,10 @@
 <script>
 export default {
   methods: {
-    remainCount: function(id) {
+    remainCount: function(pref_id) {
       var unanswereds = this.$store.state.quizzes.filter(
         quiz =>
-          (id == 0 || id == quiz.pref) &&
+          (pref_id == 0 || pref_id == quiz.pref_id) &&
           !this.$store.state.cards.includes(quiz.id)
       )
       return unanswereds.length
