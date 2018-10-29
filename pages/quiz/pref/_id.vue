@@ -3,14 +3,11 @@
     <div class="answer">
       <div class="row mb-2">
         <div class="col"/>
-        <div class="col-10 text-center">
-          この地名の読み方、わかるかな
+        <div class="col-10 text-center question-text">
+          <span v-if="type==0">この地名の読み方、わかるかな</span><span v-if="type==2"><span class="incorrect-text">不正解！</span>もう一度答えてみよう</span>
         </div>
         <div class="col"/>
       </div>
-      <div v-if="type == 2">
-        不正解
-      </div> 
       <div v-if="type==0 || type==2" class="row text-center">
         <div class="col"/>
         <div class="col-6 location-panel mb-2">
@@ -23,9 +20,11 @@
       </div>
       <div v-if="type==0 || type==2" class="row text-center mb-2">
         <div class="col"/>
-        <div class="col-6">
-          <input v-model="yomi" placeholder="ここに入力してね" class="answer-input">
-          <b-button class="answer-btn badge-pill" @click="answer"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
+        <div class="col-6 justify-content-md-center" @submit.prevent="answer">
+          <b-form inline class="justify-content-center">
+            <b-form-input v-model="yomi" placeholder="ここに入力してね" class="answer-input mr-2" />
+            <b-button class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
+          </b-form>
         </div>
         <div class="col"/>
       </div>
@@ -95,6 +94,7 @@ export default {
         this.$store.commit('setCards', this.$store.state.cards)
       } else {
         this.type = 2
+        this.yomi = ''
       }
     },
     next: function() {
@@ -113,11 +113,21 @@ export default {
 .location-panel {
   background-color: #ffffff;
 }
+.question-text {
+  font-size: 20px;
+  color: #534741;
+}
+.incorrect-text {
+  color: #036a9e;
+}
 .town-text {
   font-size: 30px;
   color: #e06a3b;
 } /* 左右余白 */
-.answer-input {
+.answer-input,
+.answer-input:focus {
+  outline: 0;
+  border-width: 2px;
   border-color: #036a9e;
 }
 .answer-btn {
