@@ -18,7 +18,7 @@ export default {
   },
   head: {
     bodyAttrs: {
-      style: 'background-color:#CAF0FB;'
+      style: 'background: linear-gradient(#4cb5f5, #ceeefa);'
     }
   }
 }

@@ -20,8 +20,8 @@
       </div>
       <div v-if="type==0 || type==2" class="row text-center mb-2">
         <div class="col"/>
-        <div class="col-6 justify-content-md-center" @submit.prevent="answer">
-          <b-form inline class="justify-content-center">
+        <div class="col-6 justify-content-md-center">
+          <b-form inline class="justify-content-center" @submit.prevent="answer">
             <b-form-input v-model="yomi" placeholder="ここに入力してね" class="answer-input mr-2" />
             <b-button class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
           </b-form>
@@ -129,6 +129,7 @@ export default {
   outline: 0;
   border-width: 2px;
   border-color: #036a9e;
+  width: 150px;
 }
 .answer-btn {
   color: white;

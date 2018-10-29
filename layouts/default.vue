@@ -1,9 +1,19 @@
 <template>
   <div class="sf-site-all">
-    <div class="sf-site-content">
-      <nuxt-link to="/">
-        <img src="logo.png" class="left">
-      </nuxt-link>
+    <div class="sf-site-content">      
+      <div class="row clearfix mt-3">
+        <div class="col-1"/>
+        <div class="col-2">
+          <nuxt-link to="/">
+            <img src="logo.png" class="left">
+          </nuxt-link>
+        </div>
+        <div class="col mt-3">
+          <nuxt-link class="btn" to="/" role="button"><b>トップ</b></nuxt-link>
+          <nuxt-link class="btn" to="/quiz" role="button"><b>クイズに挑戦</b></nuxt-link>
+          <nuxt-link class="btn" to="/collection" role="button"><b>コレクション</b></nuxt-link>
+        </div>
+      </div>
       <br>
       <nuxt/>
       <br>
@@ -23,7 +33,7 @@ export default {
   },
   head: {
     bodyAttrs: {
-      style: 'background-color:#CAF0FB;'
+      style: 'background: linear-gradient(#4cb5f5, #ceeefa);'
     }
   }
 }
@@ -39,5 +49,10 @@ img {
 }
 .sf-site-content {
   flex: 1; /* flexに1つだけ数値を指定するとその要素は伸びる */
+}
+.btn {
+  color: white;
+  border-color: white;
+  border-width: 2px;
 }
 </style>
