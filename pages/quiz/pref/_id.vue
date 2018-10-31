@@ -4,7 +4,7 @@
       <div class="row mb-2">
         <div class="col"/>
         <div class="col-10 text-center question-text">
-          <span v-if="type==0">この地名の読み方、わかるかな</span><span v-if="type==2"><span class="incorrect-text">不正解！</span>もう一度答えてみよう</span>
+          <span v-if="type==0">この地名の読み方、わかるかな</span><span v-if="type==1"><span class="correct-text">正解！</span>カードをゲットしました</span><span v-if="type==2"><span class="incorrect-text">不正解！</span>もう一度答えてみよう</span>
         </div>
         <div class="col"/>
       </div>
@@ -22,8 +22,8 @@
         <div class="col"/>
         <div class="col-6 justify-content-md-center">
           <b-form inline class="justify-content-center" @submit.prevent="answer">
-            <b-form-input v-model="yomi" placeholder="ここに入力してね" class="answer-input mr-2" />
-            <b-button class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
+            <b-input v-model="yomi" placeholder="ここに入力してね" class="answer-input w-50 mr-2" />
+            <b-button type="submit" class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
           </b-form>
         </div>
         <div class="col"/>
@@ -36,28 +36,29 @@
         <div class="col-5">
           <b-button class="hint-btn badge-pill" @click="hint">ヒントをみる</b-button>
         </div>
+
         <div class="col"/>
       </div>
       <div v-if="type==1">
-        正解！カードをゲットしました
         <div class="row justify-content-center">
-          <div class="col-4">
-            <Card :id="card.id"/>
+          <div class="col-1"/>
+          <div class="col-5">
+            <Card :id="card.id" :pref="card.pref" :city="card.city" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
+          </div>
+          <div class="col-6">
+            <div v-if="questions.length != (question_index + 1)">        
+              <b-button @click="next">別の問題をとく</b-button>
+            </div>
           </div>
         </div>
-        <div v-if="questions.length != (question_index + 1)">        
-          <b-button @click="next">別の問題をとく</b-button>
-        </div>
-        <nuxt-link :to="{name: 'quiz'}">
-          <b-button>戻る</b-button>
-        </nuxt-link>
       </div>
       <br>
     </div>
     <div class="row mt-2">
       <div class="col-6"/>
       <div class="text-right">
-        <nuxt-link to="/quiz" class="return-btn btn badge-pill">都道府県選択へ戻る</nuxt-link>
+        <nuxt-link v-if="type!=1" to="/quiz" class="return-btn btn badge-pill">都道府県選択へ戻る</nuxt-link>
+        <nuxt-link v-if="type==1" to="/" class="return-btn btn badge-pill">トップへ戻る</nuxt-link>
       </div>
     </div>
   </section>
@@ -120,6 +121,9 @@ export default {
 .incorrect-text {
   color: #036a9e;
 }
+.correct-text {
+  color: #e06a3b;
+}
 .town-text {
   font-size: 30px;
   color: #e06a3b;
@@ -129,7 +133,6 @@ export default {
   outline: 0;
   border-width: 2px;
   border-color: #036a9e;
-  width: 150px;
 }
 .answer-btn {
   color: white;
