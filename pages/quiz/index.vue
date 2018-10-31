@@ -4,13 +4,13 @@
     <map id="JapanMap" name="JapanMap">
       <area title="静岡" shape="rect" coords="391,455,445,495" alt=""
         :href="remainCount(22) > 0 ? '/quiz/pref/22' : 'javascript:void(0)' "
-        @mouseover="remainCount(22) > 0 ? cImg(1) : cImg(0)" @mouseout="cImg(0)" />
+        @mouseover="remainCount(22) > 0 ? cImg(22) : cImg(99)" @mouseout="cImg(99)" />
       <area title="神奈川" shape="rect" coords="447,454,512,486" alt=""
         :href="remainCount(14) > 0 ? '/quiz/pref/14' : 'javascript:void(0)' "
-        @mouseover="remainCount(14) > 0 ? cImg(2) : cImg(0)" @mouseout="cImg(0)" />
+        @mouseover="remainCount(14) > 0 ? cImg(14) : cImg(99)" @mouseout="cImg(99)" />
       <area title="ランダム" shape="circle" coords="82,262,36" alt="" 
         :href="remainCount(0) > 0 ? '/quiz/ref/0' : 'javascript:void(0)' "
-        @mouseover="remainCount(0) > 0 ? cImg(99) : cImg(0)" @mouseout="cImg(0)" />
+        @mouseover="remainCount(0) > 0 ? cImg(0) : cImg(99)" @mouseout="cImg(99)" />
     </map>
   <div class="row"><br></div>
   <div class="row">
