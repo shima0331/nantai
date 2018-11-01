@@ -2,12 +2,18 @@
   <section class="container">
     <img id="map" src="japanmap/JapanMap.png" usemap="#JapanMap" alt="" class="col-12" height="667px">
     <map id="JapanMap" name="JapanMap">
-      <area :href="remainCount(22) > 0 ? '/quiz/pref/22' : 'javascript:void(0)' " title="静岡" shape="rect" coords="391,455,445,495"
-            alt="静岡" @mouseover="remainCount(22) > 0 ? cImg(22) : cImg(99)" @mouseout="cImg(99)">
-      <area :href="remainCount(14) > 0 ? '/quiz/pref/14' : 'javascript:void(0)' " title="神奈川" shape="rect" coords="447,454,512,486"
-            alt="神奈川" @mouseover="remainCount(14) > 0 ? cImg(14) : cImg(99)" @mouseout="cImg(99)">
-      <area :href="remainCount(0) > 0 ? '/quiz/pref/0' : 'javascript:void(0)' " title="ランダム" shape="circle" coords="82,262,36" 
-            alt="ランダム" @mouseover="remainCount(0) > 0 ? cImg(0) : cImg(99)" @mouseout="cImg(99)">
+      <nuxt-link v-if="remainCount(22) > 0" to="/quiz/pref/22">
+        <area title="静岡" shape="rect" coords="391,455,445,495"
+              alt="静岡" @mouseover="remainCount(22) > 0 ? cImg(22) : cImg(99)" @mouseout="cImg(99)">
+      </nuxt-link>
+      <nuxt-link v-if="remainCount(14) > 0" to="/quiz/pref/14">
+        <area title="神奈川" shape="rect" coords="447,454,512,486"
+              alt="神奈川" @mouseover="remainCount(14) > 0 ? cImg(14) : cImg(99)" @mouseout="cImg(99)">
+      </nuxt-link>
+      <nuxt-link v-if="remainCount(0) > 0" to="quiz/pref/0">
+        <area title="ランダム" shape="circle" coords="82,262,36" 
+              alt="ランダム" @mouseover="remainCount(0) > 0 ? cImg(0) : cImg(99)" @mouseout="cImg(99)">
+      </nuxt-link>
     </map>
     <div class="row"><br></div>
     <div class="row">
