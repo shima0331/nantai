@@ -10,7 +10,7 @@
         <area title="神奈川" shape="rect" coords="447,454,512,486"
               alt="神奈川" @mouseover="remainCount(14) > 0 ? cImg(14) : cImg(99)" @mouseout="cImg(99)">
       </nuxt-link>
-      <nuxt-link v-if="remainCount(0) > 0" to="quiz/pref/0">
+      <nuxt-link v-if="remainCount(0) > 0" to="/quiz/pref/0">
         <area title="ランダム" shape="circle" coords="82,262,36" 
               alt="ランダム" @mouseover="remainCount(0) > 0 ? cImg(0) : cImg(99)" @mouseout="cImg(99)">
       </nuxt-link>
