@@ -89,7 +89,12 @@ export default {
       var question = this.questions[this.question_index]
       if (question.town_yomi == this.yomi) {
         this.type = 1
-        this.$store.state.cards.push(question.id)
+        this.$store.state.cards.push({
+          town_yomi: this.yomi,
+          town: question.town,
+          map_img: question.map_img,
+          id: question.id
+        })
         this.card = question
         this.$store.dispatch('saveCards', this.$store.state.cards)
         this.$store.commit('setCards', this.$store.state.cards)
