@@ -105,6 +105,9 @@ export default {
     },
     next: function() {
       this.question_index++
+      if (this.questions.length == this.question_index) {
+        this.question_index = 0
+      }
       this.type = 0
       this.yomi = ''
     }
