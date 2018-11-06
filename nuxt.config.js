@@ -71,7 +71,9 @@ module.exports = {
   },
   generate: {
     routes: function() {
-      return ['/quiz/pref/14', '/quiz/pref/22', '/quiz/pref/0']
+      return ['/quiz/pref/14', '/quiz/pref/22', '/quiz/pref/0',
+      '/collection/1', '/collection/2', '/collection/3', '/collection/4', '/collection/5', '/collection/6', '/collection/7', '/collection/8', '/collection/9', '/collection/10'
+      ]
     }
   }
 }
