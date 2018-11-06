@@ -46,7 +46,7 @@
             <Card :id="card.id" :pref="card.pref" :city="card.city" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
           </div>
           <div class="col-6">
-            <div v-if="questions.length != (question_index + 1)">        
+            <div v-if="questions.length > 0">        
               <b-button @click="next">別の問題をとく</b-button>
             </div>
           </div>
@@ -98,6 +98,7 @@ export default {
         this.card = question
         this.$store.dispatch('saveCards', this.$store.state.cards)
         this.$store.commit('setCards', this.$store.state.cards)
+        this.questions.splice(this.question_index, 1)
       } else {
         this.type = 2
         this.yomi = ''

@@ -2,14 +2,14 @@
   <div class="row justify-content-center">
     <div class="col-4">
       <Card 
-        :id="card[id].id"
-        :pref="card[id].pref"
-        :city="card[id].city"
-        :town="card[id].town"
-        :map_img="card[id].map_img"
-        :spot="card[id].spot"
-        :spot_img="card[id].spot_img"
-        :spot_guide="card[id].spot_guide"/>
+        :id="card[index].id"
+        :pref="card[index].pref"
+        :city="card[index].city"
+        :town="card[index].town"
+        :map_img="card[index].map_img"
+        :spot="card[index].spot"
+        :spot_img="card[index].spot_img"
+        :spot_guide="card[index].spot_guide"/>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      id: this.$route.params.id,
+      index: this.$route.params.id - 1,
       card: this.$store.getters.quizzes
     }
   }

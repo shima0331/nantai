@@ -25,7 +25,9 @@ const createStore = () => {
         var unanswereds = state.quizzes.filter(
           quiz =>
             (payload.pref_id == 0 || payload.pref_id == quiz.pref_id) &&
-            !state.cards.includes(quiz.id)
+            !state.cards.find(function(e) {
+              return e.id == quiz.id
+            })
         )
         commit('setQuestions', shuffle(unanswereds))
       },

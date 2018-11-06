@@ -6,7 +6,7 @@
       <div v-for="(n,index) in this.$store.getters.cards" v-if="index<4" :key="n">
         <div class="col-8">
           <div class="card-deck">
-            <a :href="'/collection/' + n.id" class="card" style="width: 15rem;">
+            <nuxt-link :to="'/collection/' + n.id" class="card" style="width: 15rem;">
               <div class="card-body">
                 <p class="card-text"><small class="text-muted">No.{{ n.id }}</small></p>
                 <p class="card-text">{{ n.town_yomi }}</p>
@@ -14,7 +14,7 @@
               </div>
               <!-- ※仮 -->
               <img class="card-img-top" src="~/static/spot/1.jpg" alt="Card image cap">
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <div v-for="(n,index) in this.$store.getters.cards" v-if="3<index && index<8" :key="n">
         <div class="col-8">
           <div class="card-deck">
-            <a :href="'/collection/' + n.id" class="card" style="width: 15rem;">
+            <nuxt-link :to="'/collection/' + n.id" class="card" style="width: 15rem;">
               <div class="card-body">
                 <p class="card-text"><small class="text-muted">No.{{ n.id }}</small></p>
                 <p class="card-text">{{ n.town_yomi }}</p>
@@ -34,7 +34,7 @@
               </div>
               <!-- ※仮 -->
               <img class="card-img-top" src="~/static/spot/1.jpg" alt="Card image cap">
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>

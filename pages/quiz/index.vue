@@ -33,7 +33,9 @@ export default {
       var unanswereds = this.$store.state.quizzes.filter(
         quiz =>
           (pref_id == 0 || pref_id == quiz.pref_id) &&
-          !this.$store.state.cards.includes(quiz.id)
+          !this.$store.state.cards.find(function(e) {
+            return e.id == quiz.id
+          })
       )
       return unanswereds.length
     },
