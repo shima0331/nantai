@@ -8,6 +8,7 @@
         :town="card[index].town"
         :map_img="card[index].map_img"
         :spot="card[index].spot"
+        :rare="card[index].rare"
         :spot_img="card[index].spot_img"
         :spot_guide="card[index].spot_guide"/>
     </div>
