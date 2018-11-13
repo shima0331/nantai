@@ -41,7 +41,7 @@ export default {
     },
     clear: function() {
       this.$store.dispatch('ClearCards', [])
-      this.$store.commit('saveCards', [])
+      this.$store.commit('setCards', [])
     }
   }
 }

@@ -106,9 +106,7 @@ export default {
     },
     next: function() {
       this.question_index++
-      alert('index' + this.question_index)
-      alert('length' + this.questions.length)
-      if (this.questions.length == this.question_index) {
+      if (this.questions.length <= this.question_index) {
         this.question_index = 0
       }
       this.type = 0
@@ -131,9 +129,11 @@ export default {
 }
 .incorrect-text {
   color: #036a9e;
+  font-weight: bold;
 }
 .correct-text {
   color: #e06a3b;
+  font-weight: bold;
 }
 .town-text {
   font-size: 30px;
