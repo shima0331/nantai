@@ -54,13 +54,6 @@
       </div>
       <br>
     </div>
-    <div class="row mt-2">
-      <div class="col-6"/>
-      <div class="text-right">
-        <nuxt-link v-if="type!=1" to="/quiz" class="return-btn btn badge-pill">都道府県選択へ戻る</nuxt-link>
-        <nuxt-link v-if="type==1" to="/" class="return-btn btn badge-pill">トップへ戻る</nuxt-link>
-      </div>
-    </div>
   </section>
 </template>
 
