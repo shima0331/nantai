@@ -43,6 +43,11 @@ const createStore = () => {
       saveCards({ commit, state }) {
         console.log(JSON.stringify(state.cards))
         localStorage.setItem('nantaiCards', JSON.stringify(state.cards))
+      },
+      // 今ある state のメッセージを ストレージから削除
+      ClearCards({ commit, state }) {
+        console.log(JSON.stringify(state.cards))
+        localStorage.removeItem('nantaiCards')
       }
     },
     getters: {

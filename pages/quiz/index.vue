@@ -40,8 +40,8 @@ export default {
       return unanswereds.length
     },
     clear: function() {
-      this.$store.dispatch('saveCards', [])
-      this.$store.commit('setCards', [])
+      this.$store.dispatch('ClearCards', [])
+      this.$store.commit('ClearCards', [])
     }
   }
 }
