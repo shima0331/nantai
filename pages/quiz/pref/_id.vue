@@ -106,6 +106,8 @@ export default {
     },
     next: function() {
       this.question_index++
+      alert('index' + this.question_index)
+      alert('length' + this.questions.length)
       if (this.questions.length == this.question_index) {
         this.question_index = 0
       }
