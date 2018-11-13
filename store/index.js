@@ -25,7 +25,9 @@ const createStore = () => {
         var unanswereds = state.quizzes.filter(
           quiz =>
             (payload.pref_id == 0 || payload.pref_id == quiz.pref_id) &&
-            !state.cards.includes(quiz.id)
+            !state.cards.find(function(e) {
+              return e.id == quiz.id
+            })
         )
         commit('setQuestions', shuffle(unanswereds))
       },
@@ -41,6 +43,11 @@ const createStore = () => {
       saveCards({ commit, state }) {
         console.log(JSON.stringify(state.cards))
         localStorage.setItem('nantaiCards', JSON.stringify(state.cards))
+      },
+      // 今ある state のメッセージを ストレージから削除
+      ClearCards({ commit, state }) {
+        console.log(JSON.stringify(state.cards))
+        localStorage.removeItem('nantaiCards')
       }
     },
     getters: {

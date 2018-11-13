@@ -33,13 +33,15 @@ export default {
       var unanswereds = this.$store.state.quizzes.filter(
         quiz =>
           (pref_id == 0 || pref_id == quiz.pref_id) &&
-          !this.$store.state.cards.includes(quiz.id)
+          !this.$store.state.cards.find(function(e) {
+            return e.id == quiz.id
+          })
       )
       return unanswereds.length
     },
     clear: function() {
-      this.$store.dispatch('saveCards', [])
-      this.$store.commit('setCards', [])
+      this.$store.dispatch('ClearCards', [])
+      this.$store.commit('ClearCards', [])
     }
   }
 }
