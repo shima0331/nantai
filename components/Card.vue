@@ -1,7 +1,15 @@
 <template>
   <b-card>
     <p class="card-text mb-1" align="right">{{ "⭐ ".repeat(rare) }}No.{{ id }}</p>
-    <p class="card-text name-text">{{ pref + city + town }}<b-card-img :src="map_img" alt="Image" class="map_img" fluid="false" /></p>
+    <div class="row"> 
+      <div class="col-9">
+        <p class="name-text mb-0 pb-0">{{ "&emsp;".repeat((pref + city ).length) }}<span class="yomi mb-0">{{ town_yomi }}</span></p>
+        <p class="name-text mt-0 pt-0">{{ pref + city + town }}</p>
+      </div>
+      <div class="col-3">
+        <b-card-img :src="map_img" alt="Image" class="map_img" fluid />
+      </div>
+    </div>
     <b-card-img :src="spot_img" alt="Image" bottom/>
     <div class="spot">
       <p class="card-text mb-1">{{ spot }}</p>
@@ -25,6 +33,10 @@ export default {
       default: ''
     },
     town: {
+      type: String,
+      default: ''
+    },
+    town_yomi: {
       type: String,
       default: ''
     },
@@ -55,14 +67,16 @@ export default {
 .spot {
   backgroud-color: yellow;
 }
-b-card {
-  backgroud-color: gray;
-}
 .name-text {
   font-size: 20px;
   color: #534741;
+  line-height: 1.2;
 }
 .map_img {
-  width: 30px;
+  width: 70px;
+}
+.yomi {
+  font-size: 14px;
+  color: #534741;
 }
 </style>

@@ -6,6 +6,7 @@
         :pref="card[index].pref"
         :city="card[index].city"
         :town="card[index].town"
+        :town_yomi="card[index].town_yomi"
         :map_img="card[index].map_img"
         :spot="card[index].spot"
         :rare="card[index].rare"

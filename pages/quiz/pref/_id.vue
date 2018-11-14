@@ -43,7 +43,7 @@
         <div class="row justify-content-center">
           <div class="col-1"/>
           <div class="col-5">
-            <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
+            <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
           </div>
           <div class="col-6">
             <div v-if="questions.length > 0">        
