@@ -99,6 +99,7 @@ export default {
         this.type = 2
         this.yomi = ''
       }
+      this.$refs.answer.$el.focus()
     },
     next: function() {
       this.question_index++
@@ -107,6 +108,7 @@ export default {
       }
       this.type = 0
       this.yomi = ''
+      this.$refs.answer.$el.focus()
     }
   }
 }
