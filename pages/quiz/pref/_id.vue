@@ -22,7 +22,7 @@
         <div class="col"/>
         <div class="col-6 justify-content-md-center">
           <b-form inline class="justify-content-center" @submit.prevent="answer">
-            <b-input v-model="yomi" placeholder="ここに入力してね" class="answer-input w-50 mr-2" />
+            <b-input ref="answer" v-model="yomi" placeholder="ここに入力してね" class="answer-input w-50 mr-2" />
             <b-button type="submit" class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
           </b-form>
         </div>
@@ -75,6 +75,9 @@ export default {
   },
   fetch({ store, params }) {
     store.dispatch('shuffle', { pref_id: params.id })
+  },
+  mounted() {
+    this.$refs.answer.$el.focus()
   },
   methods: {
     answer: function() {
