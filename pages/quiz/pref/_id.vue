@@ -77,7 +77,9 @@ export default {
     store.dispatch('shuffle', { pref_id: params.id })
   },
   mounted() {
-    this.$refs.answer.$el.focus()
+    this.$nextTick(function() {
+      this.$refs.answer.focus()
+    })
   },
   methods: {
     answer: function() {
@@ -98,8 +100,10 @@ export default {
       } else {
         this.type = 2
         this.yomi = ''
+        this.$nextTick(function() {
+          this.$refs.answer.focus()
+        })
       }
-      this.$refs.answer.$el.focus()
     },
     next: function() {
       this.question_index++
@@ -108,7 +112,9 @@ export default {
       }
       this.type = 0
       this.yomi = ''
-      this.$refs.answer.$el.focus()
+      this.$nextTick(function() {
+        this.$refs.answer.focus()
+      })
     }
   }
 }
