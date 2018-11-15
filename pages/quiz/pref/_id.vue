@@ -46,8 +46,14 @@
             <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
           </div>
           <div class="col-6">
-            <div v-if="questions.length > 0">        
-              <b-button @click="next">別の問題をとく</b-button>
+            <div>
+              <nuxt-link to="/collection" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
+            </div>
+            <div>
+              <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
+            </div>
+            <div v-if="questions.length > 0" class="mt-5">        
+              <b-button class="answer-btn badge-pill" @click="next">別の問題をとく</b-button>
             </div>
           </div>
         </div>
@@ -153,6 +159,8 @@ export default {
   color: white;
   background-color: #036a9e;
 } /* 左右余白 */
+.collection-btn,
+.google-btn,
 .other-btn,
 .hint-btn,
 .return-btn {
