@@ -11,7 +11,7 @@
         <div class="col mt-3">
           <nuxt-link class="btn" to="/" role="button"><b>トップ</b></nuxt-link>
           <nuxt-link class="btn" to="/quiz" role="button"><b>クイズに挑戦</b></nuxt-link>
-          <nuxt-link class="btn" to="/collection" role="button"><b>コレクション</b></nuxt-link>
+          <nuxt-link class="btn" to="/collection/1" role="button"><b>コレクション</b></nuxt-link>
         </div>
       </div>
       <br>
