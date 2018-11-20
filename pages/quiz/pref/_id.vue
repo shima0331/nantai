@@ -47,7 +47,7 @@
           </div>
           <div class="col-6">
             <div>
-              <nuxt-link to="/collection" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
+              <nuxt-link :to="'/collection/' + (Math.floor((card.id - 1) / 10 ) + 1)" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
             </div>
             <div>
               <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
