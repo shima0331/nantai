@@ -1,14 +1,11 @@
 <template>
   <div class="sf-site-all">
     <div class="sf-site-content">      
-      <div class="row clearfix mt-3">
-        <div class="col-1"/>
-        <div class="col-2">
-          <nuxt-link to="/">
-            <img src="logo.png" class="left">
-          </nuxt-link>
+      <div class="d-flex flex-row flex-wrap mt-3">
+        <div class="p-2">
+          <nuxt-link to="/"><img src="logo.png"></nuxt-link>
         </div>
-        <div class="col mt-3">
+        <div class="p-2">
           <nuxt-link class="btn" to="/" role="button"><b>トップ</b></nuxt-link>
           <nuxt-link class="btn" to="/quiz" role="button"><b>クイズに挑戦</b></nuxt-link>
           <nuxt-link class="btn" to="/collection/1" role="button"><b>コレクション</b></nuxt-link>
