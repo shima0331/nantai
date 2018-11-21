@@ -28,15 +28,17 @@
         </div>
         <div class="col-sm-2"/>
       </div>
-      <div v-if="type==0 || type==2" class="row clearfix">
+      <div v-if="type==0 || type==2" class="row clearfix modalh">
         <div class="col"/>
         <div class="col-5 text-right">
           <b-button class="other-btn badge-pill" @click="next">別の問題に挑戦</b-button>
         </div>
         <div class="col-5">
-          <b-button class="hint-btn badge-pill" @click="hint">ヒントをみる</b-button>
+          <b-btn v-b-modal.modal1 class="hint-btn badge-pill" @click="openModal">ヒントをみる</b-btn>
         </div>
-
+        <b-modal id="modal1" class ="modalk" title="ヒント">
+          <HINTO :hinto="hinto"/>
+        </b-modal>
         <div class="col"/>
       </div>
       <div v-if="type==1">
@@ -65,10 +67,11 @@
 
 <script>
 import Card from '~/components/Card.vue'
-
+import HINTO from '~/components/hinto.vue'
 export default {
   components: {
-    Card
+    Card,
+    HINTO
   },
   data() {
     return {
@@ -76,7 +79,9 @@ export default {
       question_index: this.$store.state.question_index,
       yomi: '',
       type: 0,
-      card: null
+      card: null,
+      hinto: '',
+      showModal: false
     }
   },
   fetch({ store, params }) {
@@ -110,6 +115,19 @@ export default {
           this.$refs.answer.focus()
         })
       }
+    },
+    openModal: function() {
+      var question = this.questions[this.question_index]
+      var hintobox = question.town_yomi.substr(0, 1)
+      var i
+      for (i = 1; i < question.town_yomi.length; i++) {
+        if (i == 1) {
+          hintobox = hintobox + '〇'
+        } else {
+          hintobox = hintobox + question.town_yomi.substr(i, 1)
+        }
+      }
+      this.hinto = hintobox
     },
     next: function() {
       this.question_index++
