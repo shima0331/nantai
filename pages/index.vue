@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-6 lign-items-center">
-        <nuxt-link class="collection_btn btn btn-primary btn-block badge-pill btn-info" to="/collection" role="button">コレクション</nuxt-link>
+        <nuxt-link class="collection_btn btn btn-primary btn-block badge-pill btn-info" to="/collection/1" role="button">コレクション</nuxt-link>
       </div>
     </div>
     <div class="row">
