@@ -28,7 +28,7 @@
                   </div>
                 </div>
               </div>
-              <div v-else-if="remaining(n + icnt)=='0'">
+              <div v-else-if="remaining(n + icnt)=='Y'">
                 <div class="col-12">
                   <div class="card-deck">
                     <div class="card" style="width: 10rem;height: 14rem;">
@@ -67,20 +67,20 @@
                     <div class="card border-0" style="width: 10rem;height: 14rem; background-color: transparent;border: border-none;">
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
-                        <h3><p> class="card-title">&nbsp;</p></h3>
+                        <h3><p class="card-title">&nbsp;</p></h3>
                         <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div v-else-if="remaining(n + 5 + icnt)=='0'">
+              <div v-else-if="remaining(n + 5 + icnt)=='Y'">
                 <div class="col-12">
                   <div class="card-deck">
                     <div class="card" style="width: 10rem; height: 14rem;">
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
-                        <h3><p> class="card-title">NO PHOTO</p></h3>
+                        <h3><p class="card-title">NO PHOTO</p></h3>
                         <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
@@ -108,12 +108,13 @@
       </tr>
     </table>
     <div align="center">
-      <nuxt-link to="/collection/1"><button type="button" class="btn btn-primary">◀</button></nuxt-link>
+      <nuxt-link :to="'/collection/' + prev"><button type="button" class="btn btn-primary">◀</button></nuxt-link>
       |
-      <nuxt-link :to="'/collection/' + pcnt2"><button type="button" class="btn btn-primary">▶</button></nuxt-link>
+      <nuxt-link :to="'/collection/' + next"><button type="button" class="btn btn-primary">▶</button></nuxt-link>
       &nbsp;
       <nuxt-link v-for="x in pcnt2" :key="x" :to="'/collection/' + x">
-        <button type="button" class="btn btn-primary">{{ x }}</button>
+        <button v-if="now==x" type="button" class="btn btn-primary">{{ x }}</button>
+        <button v-else type="button" class="btn btn-link">{{ x }}</button>
       </nuxt-link>
     </div>
   </section>
@@ -135,6 +136,7 @@ export default {
       card: null,
       quizzes: this.$store.getters.quizzes,
       id: this.$route.params.id,
+      now: this.$route.params.id,
       pcnt: this.$store.getters.quizzes.length
     }
   },
@@ -152,7 +154,24 @@ export default {
     ritu: function() {
       var plen = this.$store.getters.quizzes.length
       var clen = this.$store.getters.cards.length
-      return (clen / plen) * 100
+      return Math.round((clen / plen) * 100)
+    },
+    prev: function() {
+      var id = Number(this.$route.params.id)
+      if (id > 1) {
+        return id - 1
+      } else {
+        return id
+      }
+    },
+    next: function() {
+      var id = Number(this.$route.params.id)
+      var max = Math.ceil(this.pcnt / 10)
+      if (id == max) {
+        return id
+      } else {
+        return id + 1
+      }
     }
   },
   methods: {
@@ -165,10 +184,10 @@ export default {
       }
       for (var i = 0; i < length; i++) {
         if (cnt == card[i].id) {
-          return cnt
+          return i
         }
       }
-      return 0
+      return 'Y'
     }
   }
 }
