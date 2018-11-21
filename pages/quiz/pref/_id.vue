@@ -9,24 +9,24 @@
         <div class="col"/>
       </div>
       <div v-if="type==0 || type==2" class="row text-center">
-        <div class="col"/>
-        <div class="col-6 location-panel mb-2">
-          <div>
+        <div class="col-sm-2"/>
+        <div class="col-sm-8 mb-2">
+          <div class="location-panel">
             <img :src="questions[question_index].map_img" > 
           </div>
           {{ questions[question_index].pref }}{{ questions[question_index].city }}<span class="town-text">{{ questions[question_index].town }}</span>
         </div>
-        <div class="col"/>
+        <div class="col-sm-2"/>
       </div>
       <div v-if="type==0 || type==2" class="row text-center mb-2">
-        <div class="col"/>
-        <div class="col-6 justify-content-md-center">
+        <div class="col-sm-2"/>
+        <div class="col-sm-8 justify-content-md-center">
           <b-form inline class="justify-content-center" @submit.prevent="answer">
             <b-input ref="answer" v-model="yomi" placeholder="ここに入力してね" class="answer-input w-50 mr-2" />
             <b-button type="submit" class="answer-btn badge-pill"><span v-if="type==0">回答</span><span v-if="type==2">再回答</span></b-button>
           </b-form>
         </div>
-        <div class="col"/>
+        <div class="col-sm-2"/>
       </div>
       <div v-if="type==0 || type==2" class="row clearfix">
         <div class="col"/>
@@ -134,7 +134,7 @@ export default {
   background-color: #ffffff;
 }
 .question-text {
-  font-size: 20px;
+  font-size: 30px;
   color: #534741;
 }
 .incorrect-text {
