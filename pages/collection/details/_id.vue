@@ -14,9 +14,9 @@
         :spot_guide="card[id].spot_guide"/>
       <br>
       <div align="center">
-        <nuxt-link to="/collection/details/0"><button type="button" class="btn btn-primary">◀</button></nuxt-link>
+        <nuxt-link :to="'/collection/details/' + prev"><button type="button" class="btn btn-primary">◀</button></nuxt-link>
         |
-        <nuxt-link to="/collection/details/4"><button type="button" class="btn btn-primary">▶</button></nuxt-link>
+        <nuxt-link :to="'/collection/details/' + next"><button type="button" class="btn btn-primary">▶</button></nuxt-link>
       </div>
     </div>
   </div>
@@ -34,6 +34,25 @@ export default {
     return {
       id: this.$route.params.id,
       card: this.$store.getters.quizzes
+    }
+  },
+  computed: {
+    // 算出 getter 関数
+    // `this` は vm インスタンスを指します
+    prev: function() {
+      var pcnt = this.$route.params.id
+      if (pcnt > 0) {
+        pcnt = pcnt - 1
+      }
+      return pcnt
+    },
+    next: function() {
+      var pcnt = Number(this.$route.params.id)
+      var max = Number(this.$store.getters.quizzes.length)
+      if (pcnt < max) {
+        pcnt = pcnt + 1
+      }
+      return pcnt
     }
   }
 }
