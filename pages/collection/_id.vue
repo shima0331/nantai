@@ -35,7 +35,6 @@
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h3><p class="card-title">NO PHOTO</p></h3>
-                        <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
                   </div>
@@ -81,7 +80,6 @@
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h3><p class="card-title">NO PHOTO</p></h3>
-                        <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
                   </div>
@@ -145,7 +143,7 @@ export default {
     // `this` は vm インスタンスを指します
     icnt: function() {
       var id = this.$route.params.id
-      return (id - 1) * 8
+      return (id - 1) * 10
     },
     pcnt2: function() {
       // `this` は vm インスタンスを指します
@@ -184,7 +182,7 @@ export default {
       }
       for (var i = 0; i < length; i++) {
         if (cnt == card[i].id) {
-          return i
+          return cnt
         }
       }
       return 'Y'
