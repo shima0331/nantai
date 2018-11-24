@@ -76,13 +76,19 @@ export default {
 </script>
 <style>
 .start_btn {
+  font-size: 20px;
+  font-weight: bold;
   background-color: #036a9e;
 }
 .collection_btn,
 .usage-btn {
+  font-size: 20px;
+  font-weight: bold;
   background-color: #1e98b9;
 }
 .kiyaku-btn {
+  font-size: 20px;
+  font-weight: bold;
   background-color: #1e98b9;
 }
 #modal2 {

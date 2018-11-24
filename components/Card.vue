@@ -1,6 +1,6 @@
 <template>
   <b-card>
-    <p class="card-text mb-1" align="right">{{ "⭐ ".repeat(rare) }}No.{{ id }}</p>
+    <p class="card-text mb-1" align="right"><span class="star">{{ "★".repeat(rare) }}</span>No.{{ id }}</p>
     <div class="row"> 
       <div class="col-9">
         <p class="name-text mb-0 pb-0">{{ "&emsp;".repeat((pref + city ).length) }}<span class="yomi mb-0">{{ town_yomi }}</span></p>
@@ -64,6 +64,10 @@ export default {
 }
 </script>
 <style>
+.star {
+  font-size: 20px;
+  color: yellow;
+}
 .spot {
   backgroud-color: yellow;
 }

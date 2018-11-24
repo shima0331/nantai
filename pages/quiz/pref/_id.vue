@@ -4,7 +4,7 @@
       <div class="row mb-2">
         <div class="col"/>
         <div class="col-10 text-center question-text">
-          <span v-if="type==0">この地名の読み方、わかるかな</span><span v-if="type==1"><span class="correct-text">正解！</span>カードをゲットしました</span><span v-if="type==2"><span class="incorrect-text">不正解！</span>もう一度答えてみよう</span>
+          <span v-if="type==0">この地名の読み方、わかるかな?</span><span v-if="type==1"><span class="correct-text">正解！</span>カードをゲットしました</span><span v-if="type==2"><span class="incorrect-text">不正解！</span>もう一度答えてみよう</span>
         </div>
         <div class="col"/>
       </div>
@@ -14,7 +14,7 @@
           <div class="location-panel">
             <img :src="questions[question_index].map_img" > 
           </div>
-          {{ questions[question_index].pref }}{{ questions[question_index].city }}<span class="town-text">{{ questions[question_index].town }}</span>
+          <span class="pref-city-text">{{ questions[question_index].pref }}{{ questions[question_index].city }}</span><span class="town-text">{{ questions[question_index].town }}</span>
         </div>
         <div class="col-sm-2"/>
       </div>
@@ -43,19 +43,21 @@
       </div>
       <div v-if="type==1">
         <div class="row justify-content-center">
-          <div class="col-1"/>
-          <div class="col-5">
+          <div class="col-md-7">
             <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
           </div>
-          <div class="col-6">
-            <div>
+          <div class="col-md-5 mt-1">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="facebook-b.png"></a>
+            <a href="http://twitter.com/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="twitter-b.png"></a>
+            <a href="https://social-plugins.line.me/lineit/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="line-b.png"></a>
+            <div class="mt-1">
               <nuxt-link :to="'/collection/' + (Math.floor((card.id - 1) / 10 ) + 1)" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
             </div>
             <div>
               <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
             </div>
             <div v-if="questions.length > 0" class="mt-5">        
-              <b-button class="answer-btn badge-pill" @click="next">別の問題をとく</b-button>
+              <b-button class="answer-btn badge-pill" @click="next">別の問題に挑戦</b-button>
             </div>
           </div>
         </div>
@@ -152,7 +154,7 @@ export default {
   background-color: #ffffff;
 }
 .question-text {
-  font-size: 30px;
+  font-size: 36px;
   color: #534741;
 }
 .incorrect-text {
@@ -163,10 +165,16 @@ export default {
   color: #e06a3b;
   font-weight: bold;
 }
+.pref-city-text {
+  font-size: 28px;
+}
 .town-text {
-  font-size: 30px;
+  font-size: 36px;
   color: #e06a3b;
 } /* 左右余白 */
+.social-btn {
+  width: 30px;
+}
 .answer-input,
 .answer-input:focus {
   outline: 0;
