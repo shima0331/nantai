@@ -30,35 +30,38 @@
 import $ from 'jquery'
 export default {
   created() {
-    $(function() {
-      var image_is_loaded = false
-      $('#map').on('load', function() {
-        if (!image_is_loaded) {
-          $('area').each(function() {
-            $(this).data('coords', $(this).attr('coords'))
-          })
-          image_is_loaded = true
-        }
-      })
+    if (process.browser) {
+      $(function() {
+        var image_is_loaded = false
+        $('#map').on('load', function() {
+          if (!image_is_loaded) {
+            $('area').each(function() {
+              $(this).data('coords', $(this).attr('coords'))
+            })
+            image_is_loaded = true
+            $(window).trigger('resize')
+          }
+        })
 
-      function ratioCoords(coords, ratio) {
-        var coord_arr = coords.split(',')
-        for (var i = 0; i < coord_arr.length; i++) {
-          coord_arr[i] = Math.round(ratio * coord_arr[i])
+        function ratioCoords(coords, ratio) {
+          var coord_arr = coords.split(',')
+          for (var i = 0; i < coord_arr.length; i++) {
+            coord_arr[i] = Math.round(ratio * coord_arr[i])
+          }
+          return coord_arr.join(',')
         }
-        return coord_arr.join(',')
-      }
-      $(window).on('resize', function() {
-        if (image_is_loaded) {
-          var img = $('#map')
-          var ratio = img.width() / 617
+        $(window).on('resize', function() {
+          if (image_is_loaded) {
+            var img = $('#map')
+            var ratio = img.width() / 617
 
-          $('area').each(function() {
-            $(this).attr('coords', ratioCoords($(this).data('coords'), ratio))
-          })
-        }
+            $('area').each(function() {
+              $(this).attr('coords', ratioCoords($(this).data('coords'), ratio))
+            })
+          }
+        })
       })
-    })
+    }
   },
   methods: {
     cImg: function(id) {
