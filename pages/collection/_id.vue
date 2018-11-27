@@ -22,7 +22,6 @@
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h4 class="card-title">&nbsp;</h4>
-                        <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
                   </div>
@@ -47,7 +46,13 @@
                       <div class="card-body">
                         <p class="card-text mb-1" align="right"><small class="text-dark">{{ "⭐ ".repeat(quizzes[n + icnt - 1].rare) }}No.{{ quizzes[n + icnt - 1].id }}</small></p>
                         <p class="card-text mb-1 text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].town_yomi }}</p>
-                        <h5><p class="card-title text-dark">{{ quizzes[n + icnt - 1].town }}</p></h5>&nbsp;<small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].spot }}</small>
+                        <div v-if="quizzes[n + icnt - 1].town.length > 5">
+                          <h6><p class="card-title text-dark">{{ quizzes[n + icnt - 1].town }}</p></h6>
+                        </div>
+                        <div v-else>
+                          <h5><p class="card-title text-dark">{{ quizzes[n + icnt - 1].town }}</p></h5>
+                        </div>
+                        <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].spot }}</small>
                         <img :src="quizzes[n + icnt - 1].spot_img" class="card-img-bottom" alt="Card image cap">
                       </div>
                     </nuxt-link>
@@ -67,7 +72,6 @@
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h3><p class="card-title">&nbsp;</p></h3>
-                        <img class="card-img-top" src="" alt=" ">
                       </div>
                     </div>
                   </div>
@@ -92,7 +96,13 @@
                       <div class="card-body">
                         <p class="card-text mb-1" align="right"><small class="text-dark">{{ "⭐ ".repeat(quizzes[n + icnt + 4].rare) }}No.{{ quizzes[n + icnt + 4].id }}</small></p>
                         <p class="card-text mb-1 text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].town_yomi }}</p>
-                        <h5><p class="card-title text-dark">{{ quizzes[n + icnt + 4].town }}</p></h5>&nbsp;<small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].spot }}</small>
+                        <div v-if="quizzes[n + icnt + 4].town.length > 5">
+                          <h6><p class="card-title text-dark">{{ quizzes[n + icnt + 4].town }}</p></h6>
+                        </div>
+                        <div v-else>
+                          <h5><p class="card-title text-dark">{{ quizzes[n + icnt + 4].town }}</p></h5>
+                        </div>
+                        <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].spot }}</small>
                         <img :src="quizzes[n + icnt + 4].spot_img" class="card-img-bottom" alt="Card image cap">
                       </div>
                     </nuxt-link>
