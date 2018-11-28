@@ -13,7 +13,7 @@
     <b-card-img :src="spot_img" alt="Image" bottom/>
     <div class="spot">
       <p class="card-text mb-1">{{ spot }}</p>
-      <div style="white-space:pre-wrap;height:100px;overflow-x:visible;overflow-y:scroll;border:1px solid #aaa;padding:10px;">{{ spot_guide }}</div>
+      <div class="guide" style="white-space:pre-wrap;height:100px;overflow-x:visible;overflow-y:scroll;border:1px solid #aaa;padding:10px;">{{ spot_guide }}</div>
     </div>
   </b-card>
 </template>
@@ -64,6 +64,12 @@ export default {
 }
 </script>
 <style>
+.card-body {
+  background-color: #c2b193;
+}
+div.guide {
+  background-color: white;
+}
 .star {
   font-size: 20px;
   color: yellow;
