@@ -120,13 +120,13 @@ export default {
     },
     openModal: function() {
       var question = this.questions[this.question_index]
-      var hintobox = question.town_yomi.substr(0, 1)
+      var hintobox = '〇'
       var i
       for (i = 1; i < question.town_yomi.length; i++) {
         if (i == 1) {
-          hintobox = hintobox + '〇'
-        } else {
           hintobox = hintobox + question.town_yomi.substr(i, 1)
+        } else {
+          hintobox = hintobox + '〇'
         }
       }
       this.hinto = hintobox
