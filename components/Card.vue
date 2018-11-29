@@ -1,5 +1,5 @@
 <template>
-  <b-card>
+  <b-card class="card alert-warning border-secondary">
     <p class="card-text mb-1" align="right"><span class="star">{{ "★".repeat(rare) }}</span>No.{{ id }}</p>
     <div class="row"> 
       <div class="col-9">
@@ -13,7 +13,7 @@
     <b-card-img :src="spot_img" alt="Image" bottom/>
     <div class="spot">
       <p class="card-text mb-1">{{ spot }}</p>
-      <div style="white-space:pre-wrap;height:100px;overflow-x:visible;overflow-y:scroll;border:1px solid #aaa;padding:10px;">{{ spot_guide }}</div>
+      <div class="guide" style="white-space:pre-wrap;height:100px;overflow-x:visible;overflow-y:scroll;border:1px solid #aaa;padding:10px;">{{ spot_guide }}</div>
     </div>
   </b-card>
 </template>
@@ -64,6 +64,9 @@ export default {
 }
 </script>
 <style>
+div.guide {
+  background-color: white;
+}
 .star {
   font-size: 20px;
   color: yellow;
