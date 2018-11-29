@@ -17,20 +17,13 @@
             <div v-for="n in 5" :key="n">
               <div v-if="remaining(n + icnt)=='Z'">
                 <div class="col-12">
-                  <div class="card-deck">
-                    <div class="card border-0" style="width: 10rem;height: 14rem; background-color: transparent;border: border-none;">
-                      <div class="card-body">
-                        <p class="card-text">&nbsp;</p>
-                        <h4 class="card-title">&nbsp;</h4>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="card-deck" style="width: 10rem;height: 14rem;"/>
                 </div>
               </div>
               <div v-else-if="remaining(n + icnt)=='Y'">
                 <div class="col-12">
                   <div class="card-deck">
-                    <div class="card" style="width: 10rem;height: 14rem;">
+                    <div class="card alert-warning border-secondary" style="width: 10rem;height: 14rem;">
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h3><p class="card-title">NO PHOTO</p></h3>
@@ -42,7 +35,7 @@
               <div v-else>
                 <div class="col-12">
                   <div class="card-deck">
-                    <nuxt-link :to="'/collection/details/' + Number(n + icnt - 1)" class="card" style="width: 10rem;height: 14rem;">
+                    <nuxt-link :to="'/collection/details/' + Number(n + icnt - 1)" class="card alert-warning border-secondary" style="width: 10rem;height: 14rem;">
                       <div class="card-body">
                         <p class="card-text mb-1" align="right"><small class="text-dark">{{ "⭐ ".repeat(quizzes[n + icnt - 1].rare) }}No.{{ quizzes[n + icnt - 1].id }}</small></p>
                         <p class="card-text mb-1 text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].town_yomi }}</p>
@@ -52,7 +45,12 @@
                         <div v-else>
                           <h5><p class="card-title text-dark">{{ quizzes[n + icnt - 1].town }}</p></h5>
                         </div>
-                        <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].spot }}</small>
+                        <div v-if="quizzes[n + icnt - 1].spot.length > 11">
+                          <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].spot.substr(0,10) }} ...</small>
+                        </div>
+                        <div v-else>
+                          <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt - 1].spot }}</small>
+                        </div>
                         <img :src="quizzes[n + icnt - 1].spot_img" class="card-img-bottom" alt="Card image cap">
                       </div>
                     </nuxt-link>
@@ -67,20 +65,13 @@
             <div v-for="n in 5" :key="n">
               <div v-if="remaining(n + 5 + icnt)=='Z'">
                 <div class="col-12">
-                  <div class="card-deck">
-                    <div class="card border-0" style="width: 10rem;height: 14rem; background-color: transparent;border: border-none;">
-                      <div class="card-body">
-                        <p class="card-text">&nbsp;</p>
-                        <h3><p class="card-title">&nbsp;</p></h3>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="card-deck" style="width: 10rem;height: 14rem;"/>
                 </div>
               </div>
               <div v-else-if="remaining(n + 5 + icnt)=='Y'">
                 <div class="col-12">
                   <div class="card-deck">
-                    <div class="card" style="width: 10rem; height: 14rem;">
+                    <div class="card alert-warning border-secondary" style="width: 10rem; height: 14rem;">
                       <div class="card-body">
                         <p class="card-text">&nbsp;</p>
                         <h3><p class="card-title">NO PHOTO</p></h3>
@@ -92,7 +83,7 @@
               <div v-else>
                 <div class="col-12">
                   <div class="card-deck">
-                    <nuxt-link :to="'/collection/details/' + Number(n + icnt + 4)" class="card" style="width: 10rem;height: 14rem;">
+                    <nuxt-link :to="'/collection/details/' + Number(n + icnt + 4)" class="card alert-warning border-secondary" style="width: 10rem;height: 14rem;">
                       <div class="card-body">
                         <p class="card-text mb-1" align="right"><small class="text-dark">{{ "⭐ ".repeat(quizzes[n + icnt + 4].rare) }}No.{{ quizzes[n + icnt + 4].id }}</small></p>
                         <p class="card-text mb-1 text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].town_yomi }}</p>
@@ -102,7 +93,12 @@
                         <div v-else>
                           <h5><p class="card-title text-dark">{{ quizzes[n + icnt + 4].town }}</p></h5>
                         </div>
-                        <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].spot }}</small>
+                        <div v-if="quizzes[n + icnt + 4].spot.length > 20">
+                          <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].spot.substr(0,10) }}...</small>
+                        </div>
+                        <div v-else>
+                          <small class="text-dark" style="fontSize :60%;">{{ quizzes[n + icnt + 4].spot }}</small>
+                        </div>
                         <img :src="quizzes[n + icnt + 4].spot_img" class="card-img-bottom" alt="Card image cap">
                       </div>
                     </nuxt-link>
