@@ -1,5 +1,5 @@
 <template>
-  <b-card>
+  <b-card class="card alert-warning border-secondary">
     <p class="card-text mb-1" align="right"><span class="star">{{ "★".repeat(rare) }}</span>No.{{ id }}</p>
     <div class="row"> 
       <div class="col-9">
