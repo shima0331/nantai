@@ -3,7 +3,7 @@
     <div class="answer">
       <div class="col"/>&nbsp;
       <div class="row justify-content-center">
-        <div class="col-5">
+        <div class="col-6">
           <Card
             :rare="card[id].rare"
             :id="card[id].id"
@@ -18,14 +18,16 @@
           <br>
         </div>
         <div class="col-md-5 mt-1">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="facebook-b.png"></a>
-          <a href="http://twitter.com/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="twitter-b.png"></a>
-          <a href="https://social-plugins.line.me/lineit/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="line-b.png"></a>
-          <div class="col-6 mt-1">
+          <img class="social-btn" src="facebook-b.png">
+          <img class="social-btn" src="twitter-b.png">
+          <img class="social-btn" src="instagram.png">
+          <img class="social-btn" src="line-b.png">
+          <br>&nbsp;
+          <div class="mt-1">
             <nuxt-link :to="'/collection/' + link" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
           </div>
-          <div class="col-6 mt-1">
-            <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
+          <div class="mt-1">
+            <a :href="'https://google.co.jp/search?q=' + card[id].pref + card[id].city + card[id].town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
           </div>
         </div>
       </div>
@@ -112,6 +114,17 @@ export default {
 .question-text {
   font-size: 20px;
   color: #534741;
+}
+.social-btn {
+  width: 30px;
+}
+.collection-btn,
+.google-btn,
+.other-btn,
+.hint-btn,
+.return-btn {
+  color: white;
+  background-color: #1e98b9;
 }
 .card-columns {
   @include media-breakpoint-only(lg) {
