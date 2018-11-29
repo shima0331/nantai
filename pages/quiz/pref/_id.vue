@@ -44,20 +44,23 @@
       <div v-if="type==1">
         <div class="row justify-content-center">
           <div class="col-md-7">
-            <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide"/>
+            <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide" class="mx-3" />
           </div>
           <div class="col-md-5 mt-1">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="facebook-b.png"></a>
-            <a href="http://twitter.com/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="twitter-b.png"></a>
-            <a href="https://social-plugins.line.me/lineit/share?url=http://nantai.metro.co.jp" target="_blank"><img class="social-btn" src="line-b.png"></a>
-            <div class="mt-1">
-              <nuxt-link :to="'/collection/' + (Math.floor((card.id - 1) / 10 ) + 1)" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
-            </div>
-            <div>
-              <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
-            </div>
-            <div v-if="questions.length > 0" class="mt-5">        
-              <b-button class="answer-btn badge-pill" @click="next">別の問題に挑戦</b-button>
+            <div class="mx-3">
+              <img class="social-btn" src="facebook-b.png">
+              <img class="social-btn" src="twitter-b.png">
+              <img class="social-btn" src="instagram.png">
+              <img class="social-btn" src="line-b.png">
+              <div class="mt-1">
+                <nuxt-link :to="'/collection/' + (Math.floor((card.id - 1) / 10 ) + 1)" class="collection-btn badge-pill btn" role="button"><b>コレクションをみる</b></nuxt-link>
+              </div>
+              <div>
+                <a :href="'https://google.co.jp/search?q=' + card.pref + card.city + card.town" target="_blank" class="google-btn badge-pill btn" role="button"><b>Google検索</b></a>
+              </div>
+              <div v-if="questions.length > 0" class="mt-5">        
+                <b-button class="answer-btn badge-pill" @click="next">別の問題に挑戦</b-button>
+              </div>
             </div>
           </div>
         </div>
