@@ -66,14 +66,14 @@ export default {
 </script>
 <style>
 .card-body {
-  background-color: #c2b193;
+  background-color: #fef1c2;
 }
 div.guide {
   background-color: white;
 }
 .star {
   font-size: 20px;
-  color: yellow;
+  color: blue;
 }
 .spot {
   backgroud-color: yellow;
