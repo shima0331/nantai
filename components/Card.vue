@@ -3,8 +3,9 @@
     <p class="card-text mb-1" align="right"><span class="star">{{ "★".repeat(rare) }}</span>No.{{ id }}</p>
     <div class="row"> 
       <div class="col-9">
-        <p class="name-text mb-0 pb-0">{{ "&emsp;".repeat((pref + city ).length) }}<span class="yomi mb-0">{{ town_yomi }}</span></p>
-        <p class="name-text mt-0 pt-0">{{ pref + city + town }}</p>
+        <p class="name-text mb-0 pb-0">{{ "&emsp;".repeat(((pref + city + town_yomi) .length > 12) ? (12 - town_yomi.length) : (pref+city).length) }}<span class="yomi mb-0">{{ town_yomi }}</span></p>
+        <p v-if="(pref + city + town).length <= 9" class="name-text mt-0 pt-0">{{ pref + city + town }}</p>
+        <p v-if="(pref + city + town).length > 9" class="name-text mt-0 pt-0">{{ (pref + city + town).substr(0, 9) }}...</p>
       </div>
       <div class="col-3">
         <b-card-img :src="map_img" alt="Image" class="map_img" fluid />
