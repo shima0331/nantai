@@ -46,7 +46,7 @@
           <div class="col-md-7">
             <Card :id="card.id" :pref="card.pref" :city="card.city" :rare="card.rare" :town_yomi="card.town_yomi" :town="card.town" :map_img="card.map_img" :spot="card.spot" :spot_img="card.spot_img" :spot_guide="card.spot_guide" class="mx-3" />
           </div>
-          <div class="col-md-5 mt-1">
+          <div class="col-md-5 mt-3">
             <div class="mx-3">
               <img class="social-btn" src="facebook-b.png">
               <img class="social-btn" src="twitter-b.png">

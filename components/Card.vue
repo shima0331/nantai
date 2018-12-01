@@ -14,7 +14,7 @@
     <b-card-img :src="spot_img" alt="Image" bottom/>
     <div class="spot">
       <p class="card-text mb-1">{{ spot }}</p>
-      <div class="guide" style="white-space:pre-wrap;height:100px;overflow-x:visible;overflow-y:scroll;border:1px solid #aaa;padding:10px;">{{ spot_guide }}</div>
+      <div class="guide">{{ spot_guide }}</div>
     </div>
   </b-card>
 </template>
@@ -67,6 +67,11 @@ export default {
 <style>
 .card-body {
   background-color: #fef1c2;
+  filter: drop-shadow(10px 10px 1.5px gray);
+  border-style: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 div.guide {
   background-color: white;
@@ -89,5 +94,24 @@ div.guide {
 .yomi {
   font-size: 14px;
   color: #534741;
+}
+.card-img-bottom {
+  border-style: solid;
+  border-color: white;
+  border-width: 4px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.guide {
+  white-space: pre-wrap;
+  height: 100px;
+  overflow-x: visible;
+  overflow-y: scroll;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 1px solid #aaa;
+  padding: 10px;
 }
 </style>
